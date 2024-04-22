@@ -78,11 +78,11 @@
     <div class="dropdown">
       <button class="dropbtn">Select Language</button>
       <div class="dropdown-content">
-        <a href="#" name="Linke"
+        <a href="{% url 'app' %}" name="Linke"
           >English <i class="fa-solid fa-arrow-right"></i
         ></a>
-        <a href="#">Hindi <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="#">Marathi <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="{% url 'hindi_page' %}">Hindi <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="{% url 'marathi_page' %}">Marathi <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
 
@@ -132,7 +132,7 @@
             font-family: 'Segoe UI', sans-serif;
             color: #fff;
           "
-          >
+        >
           <h4>Enter sentence to analyze</h4></label
         >
         <hr />
@@ -201,6 +201,22 @@
       >
         Positive
       </div>
+
+      {% elif text == 'Neutral' %}
+      <div
+        class="Nositive"
+        style="
+          background-color: #4caf50;
+          width: 100px;
+          border-radius: 24px;
+          padding: 12px;
+          color: blue;
+          text-align: center;
+          margin: 0 auto;
+        "
+      >
+        Neutral
+      </div>
       {% elif text == 'Negative' %}
       <div
         class="negative"
@@ -217,6 +233,7 @@
         Negative
       </div>
       {% endif %}
+      
     </div>
   </body>
 </html>
