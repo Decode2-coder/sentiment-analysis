@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from SentimentApp.views import SentimentApp
+from SentimentApp.views import SentimentApp, hindi_page, marathi_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', SentimentApp, name='App'),
+    path('', SentimentApp, name='app'),
+    path('hindi/', hindi_page, name='hindi_page'),
+    path('marathi/', marathi_page, name='marathi_page'),
 ]
