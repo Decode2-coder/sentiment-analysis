@@ -133,7 +133,7 @@
             color: #fff;
           "
         >
-          <h4>Enter text in marathi</h4></label
+          <h4>Enter sentence in Marathi: </h4></label
         >
         <hr />
         <input
@@ -201,6 +201,27 @@
       >
         Positive
       </div>
+      <hr>
+      <div class="positive" style="...">Positive: {{ sentence }}</div>
+
+      {% elif text == 'Neutral' %}
+      <div
+        class="Nositive"
+        style="
+          background-color: white;
+          width: 100px;
+          border-radius: 24px;
+          padding: 12px;
+          color: blue;
+          text-align: center;
+          margin: 0 auto;
+        "
+      >
+        Neutral
+      </div>
+      <hr>
+
+      <div class="neutral" style="...">Neutral: {{ sentence }}</div>
       {% elif text == 'Negative' %}
       <div
         class="negative"
@@ -216,22 +237,10 @@
       >
         Negative
       </div>
-      {% endif %} {% comment %} {% elif text == 'Neutral' %}
-      <div
-        class="negative"
-        style="
-          background-color: #ff5733;
-          width: 100px;
-          border-radius: 24px;
-          padding: 12px;
-          color: #fff;
-          text-align: center;
-          margin: 0 auto;
-        "
-      >
-        Neutral
-      </div>
-      {% endif %} {% endcomment %}
+      <hr>
+      <div class="negative" style="...">Negative: {{ sentence }}</div>
+      {% endif %}
+      
     </div>
   </body>
 </html>
