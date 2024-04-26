@@ -7,46 +7,42 @@ from marathicode import predictMarathi
 
 # Create your views here.
 def SentimentApp(request):
-    form = SentimentForm(request.POST or None)
-    context = {}
     if request.method == 'POST':
+        form = SentimentForm(request.POST)
         if form.is_valid():
-            sent = form.cleaned_data.get('Sentence')    # got the sentence
+            sent = form.cleaned_data.get('Sentence')
             textAns = predictType(sent)
-            context['text'] = textAns
-        else:
-            form = SentimentForm()
+            return render(request, 'app.html', {'form': form, 'text': textAns, 'sentence': sent})
+    else:
+        form = SentimentForm()
     
-    context['form'] = form
-    return render(request, 'app.html', context=context)
+    return render(request, 'app.html', {'form': form})
+
 
 def hindi_page(request):
-    form = SentimentForm(request.POST or None)
-    context = {}
     if request.method == 'POST':
+        form = SentimentForm(request.POST)
         if form.is_valid():
-            sent = form.cleaned_data.get('Sentence')    # got the sentence
+            sent = form.cleaned_data.get('Sentence')
             textAns = predictHindi(sent)
-            context['text'] = textAns
-        else:
-            form = SentimentForm()
+            return render(request, 'hindi.html', {'form': form, 'text': textAns, 'sentence': sent})
+    else:
+        form = SentimentForm()
     
-    context['form'] = form
-    return render(request, 'hindi.html', context=context)
+    return render(request, 'hindi.html', {'form': form})
 
 
 def marathi_page(request):
-    form = SentimentForm(request.POST or None)
-    context = {}
     if request.method == 'POST':
+        form = SentimentForm(request.POST)
         if form.is_valid():
-            sent = form.cleaned_data.get('Sentence')    # got the sentence
+            sent = form.cleaned_data.get('Sentence')
             textAns = predictMarathi(sent)
-            context['text'] = textAns
-        else:
-            form = SentimentForm()
+            return render(request, 'marathi.html', {'form': form, 'text': textAns, 'sentence': sent})
+    else:
+        form = SentimentForm()
     
-    context['form'] = form
-    return render(request, 'marathi.html', context=context)
+    return render(request, 'marathi.html', {'form': form})
+
 
 
